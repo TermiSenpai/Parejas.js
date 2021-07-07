@@ -1,0 +1,51 @@
+body {
+    background-color: grey;
+    color: white;
+    font-size: 30px;
+}
+
+.row {
+    display: flex;
+}
+
+#game {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+}
+
+.red.revelado {
+    background-color: red;
+}
+
+.blue.revelado {
+    background-color: blue;
+}
+
+.carta {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin: 5px;
+    font-size: 40px;
+    text-align: center;
+    font-style: italic;
+}
+
+.red:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+.blue:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+.boton-reset {
+    width: 110px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    font-size: 30px;
+}
