@@ -1,13 +1,14 @@
 let intentos = 0
 let aciertos = 0
 let check = 0
-let jugada = 0
-let jugada1 = ""
-let jugada2 = ""
-
+turno = 0
 
 function listaDeMisCartas() {
     return Array.from( document.getElementsByClassName( "carta" ) )
+}
+
+function listaDeMisCartasReveladas() {
+    return Array.from( document.getElementsByClassName( "revelado" ) )
 }
 
 function repartir() {
@@ -29,36 +30,78 @@ function repartir() {
 
 }
 
-function girarCarta( n ) {
+function girarCarta() {
+    turno = 0
     miCarta = listaDeMisCartas()
     miCarta.forEach( carta => {
         carta.onclick = function() {
             this.classList.toggle( 'revelado' )
+            turno++
+            if ( turno == 2 ) {
+                cartasIguales = comprobarJugada()
+                if ( cartasIguales === true ) {
+                    aciertos++
+                    turno = 0
+                } else {
+                    turno = 0
+                    ocultarCartas()
+                }
+                comprobarVictoria()
+            }
         }
     } )
-    comprobarJugada()
+
 }
 
+function comprobarJugada() {
+    cartasReveladas = listaDeMisCartasReveladas()
+    let cartasRojas = 0
+    let cartasAzules = 0
+
+    for ( let i = 0; i < cartasReveladas.length; i++ ) {
+        if ( cartasReveladas[ i ].classList.contains( "red" ) ) {
+            cartasRojas++
+        }
+        if ( cartasReveladas[ i ].classList.contains( "blue" ) ) {
+            cartasAzules++
+        }
+    }
+
+    if ( cartasRojas == 2 || cartasAzules == 2 )
+        return true
+
+    return false
+}
+
+
+function ocultarCartas() {
+    let misCartas = listaDeMisCartasReveladas()
+    misCartas.forEach( carta => {
+        carta.classList.remove( "revelado" )
+    } )
+}
+
+function descolorearCartas() {
+    let misCartas = listaDeMisCartas()
+    misCartas.forEach( carta => {
+        carta.classList.remove( "red", "blue" )
+    } )
+}
+
+function reset() {
+    ocultarCartas()
+    descolorearCartas()
+    aciertos = 0
+    intentos = 0
+    aciertos = 0
+    turno = 0
+    repartir()
+    console.log( "Reseteado!" )
+
+}
 
 function comprobarVictoria() {
     if ( aciertos === 2 )
         console.log( "Victoria" )
-}
-
-function comprobarJugada() {
-
-}
-
-function reset() {
-    let misCartas = listaDeMisCartas()
-    misCartas.forEach( carta => {
-        carta.classList.remove( "revelado", "red", "blue" )
-        console.log( carta )
-    } )
-    aciertos = 0
-    intentos = 0
-    jugada = 0
-    repartir()
-    console.log( "Reseteado!" )
 
 }
