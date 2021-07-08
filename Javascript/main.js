@@ -1,7 +1,9 @@
-let intentos = 0
-let aciertos = 0
-let check = 0
-turno = 0
+START_NUM = 0
+ACIERTOS_MAX = 2
+let intentos = START_NUM
+let aciertos = START_NUM
+let check = START_NUM
+turno = START_NUM
 
 function listaDeMisCartas() {
     return Array.from( document.getElementsByClassName( "carta" ) )
@@ -31,22 +33,26 @@ function repartir() {
 }
 
 function girarCarta() {
-    turno = 0
     miCarta = listaDeMisCartas()
     miCarta.forEach( carta => {
         carta.onclick = function() {
-            this.classList.toggle( 'revelado' )
-            turno++
-            if ( turno == 2 ) {
-                cartasIguales = comprobarJugada()
-                if ( cartasIguales === true ) {
-                    aciertos++
-                    turno = 0
-                } else {
-                    turno = 0
-                    ocultarCartas()
+            if ( this.classList.contains( 'revelado' ) ) {
+                console.log( "Esta carta ya está descubierta!" )
+            } else {
+                this.classList.toggle( 'revelado' )
+                turno++
+                if ( turno == 2 ) {
+                    cartasIguales = comprobarJugada()
+                    if ( cartasIguales === true ) {
+                        aciertos++
+                        turno = START_NUM
+                    } else {
+                        turno = START_NUM
+                        setTimeout( ocultarCartas, 300 )
+
+                    }
+                    comprobarVictoria()
                 }
-                comprobarVictoria()
             }
         }
     } )
@@ -55,8 +61,8 @@ function girarCarta() {
 
 function comprobarJugada() {
     cartasReveladas = listaDeMisCartasReveladas()
-    let cartasRojas = 0
-    let cartasAzules = 0
+    let cartasRojas = START_NUM
+    let cartasAzules = START_NUM
 
     for ( let i = 0; i < cartasReveladas.length; i++ ) {
         if ( cartasReveladas[ i ].classList.contains( "red" ) ) {
@@ -91,17 +97,21 @@ function descolorearCartas() {
 function reset() {
     ocultarCartas()
     descolorearCartas()
-    aciertos = 0
-    intentos = 0
-    aciertos = 0
-    turno = 0
+    aciertos = START_NUM
+    intentos = START_NUM
+    aciertos = START_NUM
+    turno = START_NUM
     repartir()
     console.log( "Reseteado!" )
 
 }
 
 function comprobarVictoria() {
-    if ( aciertos === 2 )
-        console.log( "Victoria" )
+    if ( aciertos === ACIERTOS_MAX )
+
+    function victoriaDelJugador() {
+        alert( "Victoria" )
+    }
+    setTimeout( victoriaDelJugador, 200 )
 
 }

@@ -12,30 +12,35 @@
 
 <body onload=reset()>
     <script src="./Javascript/main.js"></script>
-    <div class="row">
-        <div id="game">
-            <div id="0" class="carta revelado" onclick="girarCarta()">
+    <!--<div class="row">-->
+    <div id="game">
+        <div class="row">
+            <div id="0" class="carta" onclick="girarCarta()">
                 <p>
                     ?
                 </p>
             </div>
-            <div id="1" class="carta revelado" onclick="girarCarta()">
+            <div id="1" class="carta" onclick="girarCarta()">
                 <p>
                     ?
                 </p>
             </div>
-            <div id="2" class="carta revelado" onclick="girarCarta()">
-                <p>
-                    ?
-                </p>
-            </div>
-            <div id="3" class="carta revelado" onclick="girarCarta()">
-                <p>
-                    ?
-                </p>
-            </div>
-            <button class="boton-reset" onclick="reset()">Reset</button>
         </div>
+        <div class="row">
+            <div id="2" class="carta" onclick="girarCarta()">
+                <p>
+                    ?
+                </p>
+            </div>
+            <div id="3" class="carta" onclick="girarCarta()">
+                <p>
+                    ?
+                </p>
+            </div>
+        </div>
+        <button class="boton-reset" onclick="reset()">Reset</button>
+    </div>
+    </div>
     </div>
 
 </body>

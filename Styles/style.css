@@ -6,6 +6,8 @@ body {
 
 .row {
     display: flex;
+    margin-top: 50px;
+    justify-content: center;
 }
 
 #game {
@@ -25,21 +27,24 @@ body {
 .carta {
     color: white;
     background-color: black;
-    padding: 10px;
+    padding: 50px;
     margin: 5px;
     font-size: 40px;
     text-align: center;
     font-style: italic;
 }
 
+p {
+    margin: auto;
+    font-family: fantasy, Helvetica, sans-serif;
+}
+
 .red:hover {
     cursor: pointer;
-    background-color: red;
 }
 
 .blue:hover {
     cursor: pointer;
-    background-color: blue;
 }
 
 .boton-reset {
