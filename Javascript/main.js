@@ -112,6 +112,6 @@ function comprobarVictoria() {
     function victoriaDelJugador() {
         alert( "Victoria" )
     }
-    setTimeout( victoriaDelJugador, 200 )
+    setTimeout( victoriaDelJugador, 2 )
 
 }
