@@ -73,8 +73,11 @@ function comprobarJugada() {
         }
     }
 
-    if ( cartasRojas == 2 || cartasAzules == 2 )
+    if ( cartasRojas == 2 || cartasAzules == 2 ) {
+        cartasRojas = START_NUM
+        cartasAzules = START_NUM
         return true
+    }
 
     return false
 }
@@ -112,6 +115,6 @@ function comprobarVictoria() {
     function victoriaDelJugador() {
         alert( "Victoria" )
     }
-    setTimeout( victoriaDelJugador, 2 )
+    setTimeout( victoriaDelJugador, 100 )
 
 }

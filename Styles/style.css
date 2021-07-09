@@ -1,7 +1,6 @@
 body {
-    background-color: grey;
-    color: white;
-    font-size: 30px;
+    background-image: url(/Images/wallpaper.png);
+    background-size: cover;
 }
 
 .row {
@@ -11,36 +10,23 @@ body {
 }
 
 #game {
-    height: 600px;
-    width: 600px;
     margin: auto;
-}
-
-.red.revelado {
-    background-color: red;
-}
-
-.blue.revelado {
-    background-color: blue;
-}
-
-.green.revelado {
-    background-color: green;
 }
 
 .carta {
     color: white;
-    background-color: black;
-    padding: 50px;
+    background-image: url(/Images/trasera.png);
+    height: 300px;
+    width: 200px;
     margin: 5px;
-    font-size: 40px;
-    text-align: center;
-    font-style: italic;
 }
 
-p {
-    margin: auto;
-    font-family: fantasy, Helvetica, sans-serif;
+.red.revelado {
+    background-image: url(/Images/pantera.jpg);
+}
+
+.blue.revelado {
+    background-image: url(/Images/magaOscura.png);
 }
 
 .red:hover {
