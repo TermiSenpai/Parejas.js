@@ -1,5 +1,5 @@
 body {
-    background-image: url(images/wallpaper.png);
+    background-image: url(/images/wallpaper.png);
     background-size: cover;
 }
 
@@ -15,18 +15,18 @@ body {
 
 .carta {
     color: white;
-    background-image: url(images/trasera.png);
+    background-image: url(/images/trasera.png);
     height: 300px;
     width: 200px;
     margin: 5px;
 }
 
 .red.revelado {
-    background-image: url(images/pantera.jpg);
+    background-image: url(/images/pantera.jpg);
 }
 
 .blue.revelado {
-    background-image: url(images/magaOscura.png);
+    background-image: url(/images/magaOscura.png);
 }
 
 .red:hover {
